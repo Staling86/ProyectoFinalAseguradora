@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+
         boolean validarCantidadCaracteres, validarEmail;
         ValidateCharacters vc = new ValidateCharacters();
         validarEmail = vc.ValidarEmail(txtEmail.getText().toString());

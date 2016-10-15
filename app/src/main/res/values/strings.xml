@@ -10,4 +10,7 @@
     <string name="usuario_incorrecto">Usuario u Contraseña incorrectos</string>
     <string name="siete_caracteres">La contraseña debe contener mas de 7 caracteres</string>
     <string name="email_incorrecto">Formato email incorrecto</string>
+    <string name="msj_seguro_salir">¿Está seguro que desea salir de la aplicación?</string>
+    <string name="msj_salir">SALIR</string>
+    <string name="msj_no">NO</string>
 </resources>
