@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="padding_autenticacion">20dp</dimen>
-    <dimen name="margin_autenticacion">25dp</dimen>
+    <dimen name="margin_autenticacion">15dp</dimen>
 </resources>

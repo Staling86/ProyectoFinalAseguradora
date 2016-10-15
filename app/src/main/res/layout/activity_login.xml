@@ -5,32 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jhon_pc.proyectofinalaseguradora.LoginActivity">
+    android:background="@color/colorBackground"
+    android:gravity="center"
+    tools:context="com.example.jhon_pc.proyectofinalaseguradora.gui.LoginActivity">
 
     <EditText
+        style="@style/txtStyle"
         android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
+        android:maxLength="50"
         android:layout_margin="@dimen/margin_autenticacion" />
-    <!--android:padding="@dimen/padding_autenticacion"-->
-
 
     <EditText
+        style="@style/txtStyle"
         android:id="@+id/txtContasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="@string/contrasena"
         android:inputType="textPassword"
+        android:maxLength="10"
         android:layout_margin="@dimen/margin_autenticacion"/>
-    <!--android:padding="@dimen/padding_autenticacion"-->
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/btnStyle"
+        android:id="@+id/btnAutenticar"
         android:text="@string/autenticar"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/margin_autenticacion"/>
-    <!--android:padding="@dimen/padding_autenticacion"-->
+        android:layout_margin="@dimen/margin_autenticacion" />
+
 </LinearLayout>

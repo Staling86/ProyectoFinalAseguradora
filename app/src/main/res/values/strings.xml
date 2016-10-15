@@ -3,4 +3,11 @@
     <string name="email">Email</string>
     <string name="contrasena">Contraseña</string>
     <string name="autenticar">Autenticar</string>
+    <string name="alerta">ALERTA</string>
+    <string name="mensaje_caracteres">La contraseña debe contener mas de 7 caracteres.</string>
+    <string name="msg_btn_entendido">Entendido</string>
+    <string name="usuario_autenticado">Usuario autenticado satisfactoriamente</string>
+    <string name="usuario_incorrecto">Usuario u Contraseña incorrectos</string>
+    <string name="siete_caracteres">La contraseña debe contener mas de 7 caracteres</string>
+    <string name="email_incorrecto">Formato email incorrecto</string>
 </resources>
