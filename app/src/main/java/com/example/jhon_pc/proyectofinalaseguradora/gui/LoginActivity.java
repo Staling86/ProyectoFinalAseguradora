@@ -57,22 +57,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         else {
             if(validarCantidadCaracteres == false){
-                txtContrasena.setError(getString(R.string.siete_caracteres));
+                ValidarFocoContrasena();
                 if(validarEmail == false){
-                    txtEmail.setError(getString(R.string.email_incorrecto));
+                    ValidarFocoEmail();
                 }
             }
             if(validarEmail == false){
-                txtEmail.setError(getString(R.string.email_incorrecto));
+                ValidarFocoEmail();
                 if(validarCantidadCaracteres == false) {
-                    txtContrasena.setError(getString(R.string.siete_caracteres));
+                    ValidarFocoContrasena();
                 }
             }
-
         }
         //endregion
     }
 
+    //regionVALIDAR MENSAJE AUTENTICACIÓN
     public void UsuarioCorrecto(){
         Toast bienvenido = Toast.makeText(this,getString(R.string.usuario_autenticado), Toast.LENGTH_SHORT);
         bienvenido.show();
@@ -82,4 +82,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Toast incorrecto = Toast.makeText(this, R.string.usuario_incorrecto, Toast.LENGTH_SHORT);
         incorrecto.show();
     }
+    //endregion
+    //regionVALIDAR FOCO CAMPOS DE TEXTO
+    public void ValidarFocoEmail(){
+        if(txtEmail.isFocusable() == false)
+            txtEmail.setError(" ");
+        else
+            txtEmail.setError(getString(R.string.email_incorrecto));
+    }
+
+    public void ValidarFocoContrasena(){
+        if(txtContrasena.isFocusable() == false){
+            txtContrasena.setError(" ");
+        }else{
+            txtContrasena.setError(getString(R.string.siete_caracteres));
+        }
+    }
+    //endregion
+
 }
