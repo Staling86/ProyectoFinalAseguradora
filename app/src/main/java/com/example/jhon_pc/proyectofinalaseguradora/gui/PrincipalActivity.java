@@ -10,13 +10,26 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.jhon_pc.proyectofinalaseguradora.R;
+import com.example.jhon_pc.proyectofinalaseguradora.util.Session;
 
 public class PrincipalActivity extends AppCompatActivity {
+
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+        session = new Session(this);
+        if(!session.Autenticado()){
+            Logout();
+        }
+    }
+
+    public void Logout(){
+        session.AsignarAutenticacion(false);
+        finish();
+        startActivity(new Intent(PrincipalActivity.this, LoginActivity.class));
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -39,9 +52,12 @@ public class PrincipalActivity extends AppCompatActivity {
         mensajeSalir.show();
 
     }
+
     public void Aceptar() {
+        session.BorrarPreferencias();
         finish();
     }
+
     public void Cancelar(){}
 
 

@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jhon_pc.proyectofinalaseguradora.R;
+import com.example.jhon_pc.proyectofinalaseguradora.util.Session;
 import com.example.jhon_pc.proyectofinalaseguradora.util.ValidateCharacters;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,8 +20,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     //endregion
 
-    EditText txtEmail, txtContrasena;
-    Button btnAutenticar;
+    private EditText txtEmail, txtContrasena;
+    private Button btnAutenticar;
+    private Session session;
 
 
     @Override
@@ -28,10 +30,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        session = new Session(this);
+
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtContrasena = (EditText) findViewById(R.id.txtContasena);
         btnAutenticar = (Button) findViewById(R.id.btnAutenticar);
         btnAutenticar.setOnClickListener(this);
+
+        if (session.Autenticado()){
+            startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+            finish();
+        }
     }
 
     @Override
@@ -48,6 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String email = txtEmail.getText().toString();
             if(email.equals(MI_EMAIL) && contrasena.equals(MI_CONTRASENA))
             {
+                session.AsignarAutenticacion(true);
                 Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
                 startActivity(intent);
                 UsuarioCorrecto();
