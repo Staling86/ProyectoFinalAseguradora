@@ -9,20 +9,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jhon_pc.proyectofinalaseguradora.R;
+import com.example.jhon_pc.proyectofinalaseguradora.util.Constantes;
 import com.example.jhon_pc.proyectofinalaseguradora.util.Session;
 import com.example.jhon_pc.proyectofinalaseguradora.util.ValidateCharacters;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //region SOLO PARA PRUEBAS
-    private final String MI_EMAIL = "jhonstaling58@hotmail.com";
-    private final String MI_CONTRASENA = "12345678";
-
-    //endregion
-
     private EditText txtEmail, txtContrasena;
     private Button btnAutenticar;
     private Session session;
+    Constantes constantes;
 
 
     @Override
@@ -31,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         session = new Session(this);
+        constantes = new Constantes();
 
         txtEmail = (EditText) findViewById(R.id.txtEmail);
         txtContrasena = (EditText) findViewById(R.id.txtContasena);
@@ -38,7 +35,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnAutenticar.setOnClickListener(this);
 
         if (session.Autenticado()){
-            startActivity(new Intent(LoginActivity.this, PrincipalActivity.class));
+            startActivity(new Intent(LoginActivity.this, PrincipalDrawerActivity.class));
             finish();
         }
     }
@@ -55,10 +52,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(validarEmail == true && validarCantidadCaracteres == true){
             String contrasena = txtContrasena.getText().toString();
             String email = txtEmail.getText().toString();
-            if(email.equals(MI_EMAIL) && contrasena.equals(MI_CONTRASENA))
+            if(email.equals(constantes.MI_EMAIL) && contrasena.equals(constantes.MI_CONTRASENA))
             {
                 session.AsignarAutenticacion(true);
-                Intent intent = new Intent(LoginActivity.this, PrincipalActivity.class);
+                Intent intent = new Intent(LoginActivity.this, PrincipalDrawerActivity.class);
                 startActivity(intent);
                 UsuarioCorrecto();
                 finish();
